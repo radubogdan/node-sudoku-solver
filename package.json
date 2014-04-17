@@ -3,9 +3,6 @@
   "version": "0.0.0",
   "description": "Solve sudoku problems using Node.js and output the solution in the terminal",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git://github.com/radubogdan/sudoku-solver.git"
@@ -22,7 +19,6 @@
   },
   "homepage": "https://github.com/radubogdan/sudoku-solver",
   "devDependencies": {
-    "mocha": "~1.18.2",
-    "chai": "~1.9.1"
+    "jasmine-node": "~1.14.3"
   }
 }
