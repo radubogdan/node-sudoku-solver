@@ -61,23 +61,23 @@ describe("Global function", function () {
     });
 
     describe("__same block__", function() {
-        it("numbers should not be on the same column", function () {
-            var test = sameColumn(0,9);
+        it("numbers should be in the same block", function () {
+            var test = sameBlock(0,9);
             expect(test).toBe(true);
         });
 
-        it("numbers should not be on the same column", function () {
-            var test = sameColumn(0,20);
+        it("numbers should be in the same block", function () {
+            var test = sameBlock(0,20);
             expect(test).toBe(true);
         });
 
-        it("numbers should not be on the same column", function () {
-            var test = sameColumn(0,21);
+        it("numbers should not be in the same block", function () {
+            var test = sameBlock(0,21);
             expect(test).toBe(false);
         });
 
-        it("numbers should not be on the same column", function () {
-            var test = sameColumn(40,67);
+        it("numbers should not be in the same block", function () {
+            var test = sameBlock(40,67);
             expect(test).toBe(false);
         });
     });
