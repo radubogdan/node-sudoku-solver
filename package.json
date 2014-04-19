@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "description": "Solve sudoku problems using Node.js and output the solution in the terminal",
   "main": "index.js",
+  "dependencies": {
+    "simplesets": "*"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/radubogdan/sudoku-solver.git"
