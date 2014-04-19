@@ -24,15 +24,20 @@ global.sameBlock = function(i, j) {
 sudokuSolver.solve = function (options) {
 
     // Expect at least one problem
-    options.problem = options.problem || 0;
+    var problem = options.problem;
+
+    // Replace spaces with nothing
+    if (problem && problem.constructor == String) {
+        problem = problem.replace (/ /g, "");
+    }
 
     // Verify if we get a problem
-    if (options.problem == 0) {
-        console.log("I need a problem");
-    } else if (options.problem.length != 81) {
+    if (!problem || problem.constructor !== String) {
+        console.log("Problem mubst be a nonempty string.");
+    } else if (problem.length != 81) {
         console.log("A valid sudoku problem should have a length of 81");
     } else {
-        solver(options.problem);
+        solver(problem);
     }
 
     // This is called to solve our game
