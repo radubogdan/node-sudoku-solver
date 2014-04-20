@@ -1,6 +1,6 @@
 {
   "name": "sudoku-solver",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Solve sudoku problems using Node.js and output the solution in the terminal",
   "main": "index.js",
   "dependencies": {
@@ -16,6 +16,16 @@
     "problems"
   ],
   "author": "Radu-Bogdan Croitoru",
+  "contributors": [
+    {
+        "name": "Radu-Bogdan Croitoru",
+        "email": "croitoruradubogdan@gmail.com"
+    },
+    {
+        "name": "Ionică Bizău",
+        "email": "bizauionica@gmail.com"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/radubogdan/sudoku-solver/issues"
