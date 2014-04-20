@@ -26,14 +26,17 @@ sudokuSolver.solve = function (options) {
     // Expect at least one problem
     var problem = options.problem;
 
-    // Replace spaces with nothing
     if (problem && problem.constructor == String) {
+        // Replace spaces with nothing
         problem = problem.replace (/ /g, "");
+
+        // Replace . with 0
+        problem = problem.replace (/\./g, "0");
     }
 
     // Verify if we get a problem
     if (!problem || problem.constructor !== String) {
-        console.log("Problem mubst be a nonempty string.");
+        console.log("Problem must be a nonempty string.");
     } else if (problem.length != 81) {
         console.log("A valid sudoku problem should have a length of 81");
     } else {
