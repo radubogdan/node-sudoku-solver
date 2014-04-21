@@ -4,7 +4,8 @@
   "description": "Solve sudoku problems using Node.js and output the solution in the terminal",
   "main": "index.js",
   "dependencies": {
-    "simplesets": "*"
+    "simplesets": "*",
+    "sprintf": "*"
   },
   "repository": {
     "type": "git",

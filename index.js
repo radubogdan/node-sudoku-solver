@@ -1,5 +1,6 @@
 // Dependencies
-var sets = require('simplesets');
+var sets = require('simplesets')
+  , vsprintf = require('sprintf').vsprintf;
 
 var sudokuSolver = {};
 
@@ -21,10 +22,41 @@ global.sameBlock = function(i, j) {
     return (Math.floor(i/27) == Math.floor(j/27) && Math.floor(i%9/3) == Math.floor(j%9/3));
 }
 
+// Output the problem in the terminal
+global.output = function(problem, style) {
+    // Check if style is false or true
+    style == false ? console.log(problem) : stylishOutput(problem);
+
+    // This is called when style == true
+    function stylishOutput(problem) {
+
+        // Make a new array of strings where each string have 9 elements
+        var new_data = problem.match(/(.........)/g);
+
+        // Print one formated line
+        function printLine() {
+            console.log(vsprintf('%s %s %s | %s %s %s | %s %s %s', new_data.shift().match(/(.)/g)));
+        }
+
+        // Print delimter
+        function printDelimiter() {
+            console.log('------+-------+------');
+        }
+
+        // Build the output
+        for(var i = 0; i < 13; i++) {
+            i % 4 == 0 ? printDelimiter() : printLine();
+        }
+    }
+}
+
 sudokuSolver.solve = function (options) {
 
     // Expect at least one problem
     var problem = options.problem;
+
+    // Take the style from options
+    var style = options.style || false;
 
     if (problem && problem.constructor == String) {
         // Replace spaces with nothing
@@ -49,7 +81,7 @@ sudokuSolver.solve = function (options) {
         var i = problem.indexOf("0");
 
         // If i is negative that means we're done
-        (i == -1) ? console.log(problem) : 'err'
+        (i == -1) ? output(problem, style) : 'err'
 
         // Create a set to save excluded elements
         var excludedElements = new sets.Set();
