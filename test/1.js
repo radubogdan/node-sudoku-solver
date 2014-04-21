@@ -12,4 +12,5 @@ SudokuSolver.solve({
            + '8 . . 2 . 3 . . 9'
            + '. . 5 . 1 . 3 . .'
   , style: true
+  , initial: true
 });

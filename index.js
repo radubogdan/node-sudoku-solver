@@ -52,13 +52,13 @@ global.output = function(problem, style) {
 
 sudokuSolver.solve = function (options) {
 
-    // Expect at least one problem
-    var problem = options.problem;
-
-    // Take the style from options
-    var style = options.style || false;
+    // Save options to manipulate them
+    var problem = options.problem
+      , style = options.style || false
+      , initial = options.initial || false;
 
     if (problem && problem.constructor == String) {
+
         // Replace spaces with nothing
         problem = problem.replace (/ /g, "");
 
@@ -72,6 +72,14 @@ sudokuSolver.solve = function (options) {
     } else if (problem.length != 81) {
         console.log("A valid sudoku problem should have a length of 81");
     } else {
+
+        // Display the problem if initial is true
+        if (initial == true) {
+            console.log("Problem:");
+            output(problem, style);
+        }
+
+        // Call the solver
         solver(problem);
     }
 
@@ -81,7 +89,10 @@ sudokuSolver.solve = function (options) {
         var i = problem.indexOf("0");
 
         // If i is negative that means we're done
-        (i == -1) ? output(problem, style) : 'err'
+        if (i == -1) {
+            console.log("\nSolution:");
+            output(problem, style);
+        }
 
         // Create a set to save excluded elements
         var excludedElements = new sets.Set();
