@@ -60,7 +60,7 @@ or a formatted string (like in example), with `0` or `.` for missing numbers.
 
 ## Methods
 
-### `start (options)`
+### `solve (options)`
   - `@options` - Object - containing the following:
     - `problem` - String - representing the sudoku problem.
     - `initial` - Boolean - print the problem (default: false)
