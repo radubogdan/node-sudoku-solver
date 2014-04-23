@@ -22,32 +22,46 @@ global.sameBlock = function(i, j) {
     return (Math.floor(i/27) == Math.floor(j/27) && Math.floor(i%9/3) == Math.floor(j%9/3));
 }
 
-// Output the problem in the terminal
-global.output = function(problem, style) {
-    // Check if style is false or true
-    style == false ? console.log(problem) : stylishOutput(problem);
+// This is called when style == true
+function stylishOutput(problem) {
 
-    // This is called when style == true
-    function stylishOutput(problem) {
+    // Make a new array of strings where each string have 9 elements
+    // Initialize the stringified solution
+    var new_data = problem.match(/(.........)/g)
+      , stringifiedResult = "";
 
-        // Make a new array of strings where each string have 9 elements
-        var new_data = problem.match(/(.........)/g);
-
-        // Print one formated line
-        function printLine() {
-            console.log(vsprintf('%s %s %s | %s %s %s | %s %s %s', new_data.shift().match(/(.)/g)));
-        }
-
-        // Print delimter
-        function printDelimiter() {
-            console.log('------+-------+------');
-        }
-
-        // Build the output
-        for(var i = 0; i < 13; i++) {
-            i % 4 == 0 ? printDelimiter() : printLine();
-        }
+    // Add one formated line
+    function addLine() {
+        stringifiedResult += vsprintf('%s %s %s | %s %s %s | %s %s %s', new_data.shift().match(/(.)/g)) + "\n";
     }
+
+    // Add delimter
+    function addDelimiter() {
+        stringifiedResult += '------+-------+------\n'
+    }
+
+    // Build the output
+    for(var i = 0; i < 13; i++) {
+        i % 4 == 0 ? addDelimiter() : addLine();
+    }
+
+    // Finally, return the stringified solution
+    return stringifiedResult;
+}
+
+// Output the problem in the terminal
+global.output = function(problem, style, doNotPrint) {
+
+    // Check if style is false or true
+    var stringifiedSolution = style == false ? problem : stylishOutput(problem);
+
+    // If do not print was provided, just return the stringified solution
+    if (doNotPrint) {
+        return stringifiedSolution;
+    }
+
+    // Print solution
+    console.log(stringifiedSolution);
 }
 
 sudokuSolver.solve = function (options) {
@@ -75,13 +89,13 @@ sudokuSolver.solve = function (options) {
 
         // Display the problem if initial is true
         if (initial == true) {
-            console.log("Problem:");
+            console.log("Your input problem is:");
             output(problem, style);
         }
-
-        // Call the solver
-        solver(problem);
     }
+
+    // Initialize the solution
+    var _solution = null;
 
     // This is called to solve our game
     function solver(problem) {
@@ -90,8 +104,7 @@ sudokuSolver.solve = function (options) {
 
         // If i is negative that means we're done
         if (i == -1) {
-            console.log("\nSolution:");
-            output(problem, style);
+            _solution = problem;
         }
 
         // Create a set to save excluded elements
@@ -116,6 +129,23 @@ sudokuSolver.solve = function (options) {
                 // Call solver with the updated problem
                 solver(problem.slice(0, i) + elem + problem.slice(i+1, problem.length));
             }
+        }
+
+        return problem;
+    }
+
+    // Solve problem
+    solver(problem);
+
+    return {
+        toString: function(style) {
+            // We just return the stringified solution (styled or not)
+            return output (_solution, style, true)
+        }
+      , printSolution: function (style) {
+
+            // Print in terminal the solution
+            output (_solution, style)
         }
     }
 }

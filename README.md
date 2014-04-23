@@ -18,7 +18,7 @@ SudokuSolver.solve({
            + '. . 5 . 1 . 3 . .'
   , style: true
   , initial: true
-});
+}).printSolution();
 ```
 
 Result will be:
@@ -61,10 +61,22 @@ or a formatted string (like in example), with `0` or `.` for missing numbers.
 ## Methods
 
 ### `solve (options)`
+Solves the problem and returns an object.
+
   - `@options` - Object - containing the following:
     - `problem` - String - representing the sudoku problem.
     - `initial` - Boolean - print the problem (default: false)
     - `style` - Boolean - format the output (default: false)
+
+### `solve (options).toString(style)`
+Converts the solution to string.
+
+  - `@style` - Boolean - if true, the stringified solution will be styled.
+
+### `solve (options).printSolution(style)`
+Prints the stringified solution in terminal.
+
+  - `@style` - Boolean - if true, the stringified solution will be styled.
 
 ## Specs
 

@@ -13,4 +13,4 @@ SudokuSolver.solve({
            + '. . 5 . 1 . 3 . .'
   , style: true
   , initial: true
-});
+}).printSolution()
