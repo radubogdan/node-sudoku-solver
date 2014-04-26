@@ -92,7 +92,10 @@ There is an example in test foloder `1.js`. Run it with `node test/1.js`
 
 ## Changelog
 
-  - `0.0.2`: Add option to format the output: ([#2] (https://github.com/radubogdan/sudoku-solver/issues/2))
+  - `0.0.2`:
+    - Release to npmjs
+    - Return an object ([#3] (https://github.com/radubogdan/sudoku-solver/issues/3))
+    - Add option to format the output: ([#2] (https://github.com/radubogdan/sudoku-solver/issues/2))
   - `0.0.1`: Format test file and validate string: ([#1] (https://github.com/radubogdan/sudoku-solver/pull/1))
   - `0.0.0`: First working version
 
