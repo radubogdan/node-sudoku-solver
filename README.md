@@ -68,15 +68,11 @@ Solves the problem and returns an object.
     - `initial` - Boolean - print the problem (default: false)
     - `style` - Boolean - format the output (default: false)
 
-### `solve (options).toString(style)`
+### `solve (options).toString()`
 Converts the solution to string.
 
-  - `@style` - Boolean - if true, the stringified solution will be styled.
-
-### `solve (options).printSolution(style)`
+### `solve (options).printSolution()`
 Prints the stringified solution in terminal.
-
-  - `@style` - Boolean - if true, the stringified solution will be styled.
 
 ## Specs
 
@@ -92,6 +88,8 @@ There is an example in test foloder `1.js`. Run it with `node test/1.js`
 
 ## Changelog
 
+  - `0.0.3`:
+    - Fix for output without style
   - `0.0.2`:
     - Release to npmjs
     - Return an object ([#3] (https://github.com/radubogdan/sudoku-solver/issues/3))
