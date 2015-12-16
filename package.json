@@ -1,6 +1,6 @@
 {
   "name": "sudoku-solver",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Solve sudoku problems using Node.js and output the solution in the terminal",
   "main": "index.js",
   "dependencies": {
@@ -25,6 +25,10 @@
     {
         "name": "Ionică Bizău",
         "email": "bizauionica@gmail.com"
+    },
+    {
+        "name": "@ffflorian",
+        "email": ""
     }
   ],
   "license": "MIT",

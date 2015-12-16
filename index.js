@@ -8,17 +8,17 @@ var sudokuSolver = {};
 // Run specs for this functions using jasmine
 //
 // Check if i is on the same row with j
-global.sameRow = function(i, j) {
+global.sameRow = function (i, j) {
     return (Math.floor(i/9) == Math.floor(j/9));
 }
 
 // Check if i is on the same column with j
-global.sameColumn = function(i, j) {
+global.sameColumn = function (i, j) {
     return ((i - j) % 9 == 0);
 }
 
 // Check if i is in the same block with j
-global.sameBlock = function(i, j) {
+global.sameBlock = function (i, j) {
     return (Math.floor(i/27) == Math.floor(j/27) && Math.floor(i%9/3) == Math.floor(j%9/3));
 }
 
@@ -50,7 +50,7 @@ function stylishOutput(problem) {
 }
 
 // Output the problem in the terminal
-global.output = function(problem, style, doNotPrint) {
+global.output = function (problem, style, doNotPrint) {
 
     // Check if style is false or true
     var stringifiedSolution = style == false ? problem : stylishOutput(problem);
@@ -138,11 +138,11 @@ sudokuSolver.solve = function (options) {
     solver(problem);
 
     return {
-        toString: function(style) {
+        toString: function () {
             // We just return the stringified solution (styled or not)
             return output (_solution, style, true)
         }
-      , printSolution: function (style) {
+      , printSolution: function () {
 
             // Print in terminal the solution
             output (_solution, style)
